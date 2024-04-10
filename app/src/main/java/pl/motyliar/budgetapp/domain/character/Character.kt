@@ -12,6 +12,8 @@ abstract class Character(
     val experience: Int,
     val money: Int,
     val talisman: Talisman,
+    val armorSet: ArmorSet,
+
 
 
 
