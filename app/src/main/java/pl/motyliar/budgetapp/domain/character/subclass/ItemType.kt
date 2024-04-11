@@ -5,7 +5,8 @@ enum class ItemType(val extraDefence: Int, val material: String,) {
     STEEL(0, "Steel"),
     GOD(25, "God"),
     BLACKSTEEL(5, "Black Steel"),
-    KEVLAR(8, "Kevlar")
+    KEVLAR(8, "Kevlar"),
+    LEATHER(2, "Leather")
 
 
 
