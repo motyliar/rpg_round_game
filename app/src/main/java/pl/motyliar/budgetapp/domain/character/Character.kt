@@ -11,7 +11,7 @@ abstract class Character(
     open val vitality: Vitality,
     private var experience: Int = 0,
     val money: Int = 100,
-    val talisman: Talisman? = null,
+    var talisman: Talisman? = null,
     open val armorSet: ArmorSet,
     )
  {
@@ -28,10 +28,16 @@ abstract class Character(
      fun getExperience(): Int {
          return experience
      }
-     fun getPower(): Int {
+     fun getTotalPower(): Int {
          val talismanPower = talisman?.getExtraPoints(TalismanKind.POWER) ?: 0
          return vitality.power + weapon.power + talismanPower
+     }
 
+     fun getTotalDefence(): Int {
+         val armorDefence = armorSet.getTotalDefence()
+         val weaponDefence = weapon.defence
+         val talismanDefence = talisman?.getExtraPoints(TalismanKind.DEFENCE) ?: 0
+         return armorDefence + weaponDefence + talismanDefence
      }
 }
 
