@@ -16,7 +16,9 @@ abstract class Character(
     )
  {
 
-     private val defence: Int = 0
+     private var _extraPoints: ExtraPoints = ExtraPoints()
+     val extraPoints: ExtraPoints = _extraPoints
+
      private val level : CharacterLevel = LevelOne()
      fun getCharacterName() : String {
          return name
@@ -39,6 +41,7 @@ abstract class Character(
          val talismanDefence = talisman?.getExtraPoints(TalismanKind.DEFENCE) ?: 0
          return armorDefence + weaponDefence + talismanDefence
      }
+
 }
 
 class Warrior(

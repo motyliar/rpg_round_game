@@ -79,4 +79,19 @@ class WarriorTests {
         warrior.talisman = defenceTalisman
         assertEquals(40, warrior.getTotalDefence())
     }
+    @Test
+    fun shouldReturnExtraPoints() {
+        warrior.extraPoints.addExtraPoints()
+
+        assertEquals(10, warrior.extraPoints.getExtraPoints())
+    }
+    @Test
+    fun afterDecrementShouldReturnLessExtraPoints() {
+        warrior.extraPoints.addExtraPoints()
+        warrior.extraPoints.removeSinglePoints()
+        warrior.extraPoints.addExtraPoints()
+        warrior.extraPoints.removeSinglePoints()
+
+        assertEquals(18, warrior.extraPoints.getExtraPoints())
+    }
 }
