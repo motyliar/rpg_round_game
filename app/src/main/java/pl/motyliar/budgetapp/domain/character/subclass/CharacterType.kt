@@ -8,6 +8,6 @@ sealed class CharacterType(val type: Kind) {
 }
 
 
-enum class Kind(type: String) {
-    WARRIOR("warrior"), MONSTER("monster"), WIZARD("wizard")
+enum class Kind() {
+    WARRIOR, MONSTER, WIZARD
 }

@@ -2,9 +2,11 @@ package pl.motyliar.budgetapp.domain.character.subclass
 
 import pl.motyliar.budgetapp.core.themes.structure.CustomList
 
-abstract class Item(protected val name: String, val price: Int,val type: ItemType) {
+
+abstract class Item(protected open val name: String,open val price: Int, open val type: ItemType) {
     fun getFullName() : String {
-        return "${type.name} $name"
+
+        return "${type.name.lowercase().capitalize()} $name"
     }
 }
 
