@@ -13,6 +13,8 @@ class ArmorSetTest {
     val warrior: Character = Warrior()
     val armorSetTest: ArmorSet = ArmorSet(chest = LeatherJacket(), boots = LeatherBoots())
 
+
+   
     @Test
     fun shouldBeBootsInArmorSet() {
         val newBoots = LeatherBoots()
@@ -31,6 +33,13 @@ class ArmorSetTest {
         val newBoots = LeatherBoots()
         val copiedArmorSet =  warrior.armorSet.copyWith(boots = newBoots)
         assertTrue(armorSetTest == copiedArmorSet)
+    }
+
+    @Test
+    fun shouldReturnArmorSetFullDefence() {
+        val newBoots = LeatherBoots()
+        val copiedArmorSet =  warrior.armorSet.copyWith(boots = newBoots)
+        assertEquals(44, copiedArmorSet.getTotalDefence())
     }
 
 
