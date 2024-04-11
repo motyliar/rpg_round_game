@@ -11,7 +11,7 @@ import androidx.compose.foundation.text2.BasicTextField2
 import androidx.compose.foundation.text2.input.TextFieldLineLimits
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -31,8 +31,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import pl.motyliar.budgetapp.R
 import pl.motyliar.budgetapp.ui.theme.*
 import pl.motyliar.budgetapp.viewmodels.HomeViewModel
-import androidx.compose.runtime.*
+
 import androidx.compose.ui.text.TextStyle
+import pl.motyliar.budgetapp.domain.character.*
 import pl.motyliar.budgetapp.view.buisness.ValueState
 import pl.motyliar.budgetapp.view.components.CustomButton
 import java.time.temporal.TemporalAmount.*
@@ -41,11 +42,12 @@ import java.time.temporal.TemporalAmount.*
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen() {
+    val warriorCharacter: Character = Warrior()
     val viewModel = viewModel<HomeViewModel>()
     val content = viewModel.content.collectAsState()
     val amount = viewModel.amount.collectAsState()
     val newContent = viewModel<ValueState>()
-    val name = newContent.myNewValue.collectAsState()
+    val name = newContent.myNewValue
     var textController by remember {
         mutableStateOf("Type here...")
     }
@@ -56,7 +58,7 @@ fun HomeScreen() {
 
     Surface(modifier = Modifier.fillMaxSize()) {
         ConstraintLayout(modifier = Modifier.fillMaxSize()) {
-            val (nameRow, list, card, topBar, field) = createRefs()
+            val (nameRow, list, card, topBar, field, warrior) = createRefs()
             Image(
 
                 painter = painterResource(id = R.drawable.top),
@@ -123,6 +125,19 @@ fun HomeScreen() {
                 onValueChange = { viewModel.changeContent(name = it) },
                 lineLimits = TextFieldLineLimits.SingleLine
             )
+            Column(modifier = Modifier.constrainAs(warrior) {
+                top.linkTo(field.bottom)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }) {
+                Text(text = warriorCharacter.name , color = Color.Black)
+                Text(text = warriorCharacter.weapon.getFullName() , color = Color.Black)
+                Text(text = warriorCharacter.armorSet.chest!!.getFullName() , color = Color.Black)
+                Text(text = warriorCharacter.type.type.name, color = Color.Black)
+
+
+
+            }
         }
     }
 }
