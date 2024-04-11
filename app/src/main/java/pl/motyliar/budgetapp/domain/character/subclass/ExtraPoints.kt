@@ -17,8 +17,8 @@ class ExtraPoints {
     }
 
     fun setExtraPoints(value: Int) {
-        if(value > 0)
-        extraPoints += value
+        if(value > 0) {
+        extraPoints += value }
     }
 
 

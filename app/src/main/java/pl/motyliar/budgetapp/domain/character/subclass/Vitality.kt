@@ -5,5 +5,6 @@ class Vitality(val power: Int,
                val intelligence: Int,
                val life: Int,
                val magic: Int,
+                val dexterity: Int,
                                 ) {
 }

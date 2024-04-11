@@ -28,13 +28,18 @@ abstract class Character(
      fun getExperience(): Int {
          return experience
      }
+     fun getPower(): Int {
+         val talismanPower = talisman?.getExtraPoints(TalismanKind.POWER) ?: 0
+         return vitality.power + weapon.power + talismanPower
+
+     }
 }
 
 class Warrior(
     override var name: String = "Bogdan",
     override val type: CharacterType = CharacterType.Warrior,
     override val weapon: Weapon = Sword(),
-    override val vitality: Vitality = Vitality(power = 10, strength = 10, intelligence = 10, life = 50, magic = 10),
+    override val vitality: Vitality = Vitality(power = 10, strength = 10, intelligence = 10, life = 50, magic = 10, dexterity = 10),
     override val armorSet: ArmorSet = ArmorSet(chest = LeatherJacket())
 
 
