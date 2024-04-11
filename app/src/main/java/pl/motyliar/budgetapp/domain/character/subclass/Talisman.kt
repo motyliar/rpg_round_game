@@ -9,6 +9,7 @@ class Talisman(name: String, type: ItemType, price: Int, private var extraPoints
                 TalismanKind.DEXTERITY ->talismanPoints = extraPoints
                 TalismanKind.POWER -> talismanPoints = extraPoints
                 TalismanKind.INTELLIGENCE -> talismanPoints = extraPoints
+                TalismanKind.DEFENCE -> talismanPoints = extraPoints
             }
         }
         return talismanPoints
@@ -19,7 +20,7 @@ class Talisman(name: String, type: ItemType, price: Int, private var extraPoints
 
 
 enum class TalismanKind {
-    MAGIC, POWER, INTELLIGENCE, DEXTERITY
+    MAGIC, POWER, INTELLIGENCE, DEXTERITY, DEFENCE
 }
 
 
