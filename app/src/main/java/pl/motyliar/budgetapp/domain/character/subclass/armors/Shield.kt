@@ -7,12 +7,12 @@ abstract class Shield(
     name: String,
     type: ItemType,
     price: Int,
-    resistance: Int,
+    destruction: Int,
     defence: Int
 ) :
     Armor(
         defence = defence,
-        resistance = resistance,
+        destruction = destruction,
         price = price,
         name = name,
         type = type

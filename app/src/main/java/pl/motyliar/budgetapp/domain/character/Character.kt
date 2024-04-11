@@ -1,24 +1,47 @@
 package pl.motyliar.budgetapp.domain.character
 import pl.motyliar.budgetapp.domain.character.subclass.*
-
+import pl.motyliar.budgetapp.domain.character.subclass.armors.LeatherJacket
 
 
 abstract class Character(
-    val name: String,
-    val type: CharacterType,
-    val weapon: Weapon,
-    val items: Items,
-    val vitality: Vitality,
-    val experience: Int,
-    val money: Int,
-    val talisman: Talisman,
-    val armorSet: ArmorSet,
-
-
-
-
+    open var name: String,
+    open val type: CharacterType,
+    open val weapon: Weapon,
+    open val items: Items = Items(),
+    open val vitality: Vitality,
+    private var experience: Int = 0,
+    val money: Int = 100,
+    val talisman: Talisman? = null,
+    open val armorSet: ArmorSet,
     )
  {
-     private val deffence: Int = 0
+
+     private val defence: Int = 0
      private val level : CharacterLevel = LevelOne()
+     fun getCharacterName() : String {
+         return name
+     }
+     fun addExperience(value: Int) {
+         experience += value
+     }
+
+     fun getExperience(): Int {
+         return experience
+     }
 }
+
+class Warrior(
+    override var name: String = "Bogdan",
+    override val type: CharacterType = CharacterType.Warrior,
+    override val weapon: Weapon = Sword(),
+    override val vitality: Vitality = Vitality(power = 10, strength = 10, intelligence = 10, life = 50, magic = 10),
+    override val armorSet: ArmorSet = ArmorSet(chest = LeatherJacket())
+
+
+) : Character(name = name,
+    type = type, weapon = weapon, vitality = vitality, armorSet = armorSet
+
+) {
+
+}
+

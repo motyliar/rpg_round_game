@@ -2,9 +2,9 @@ package pl.motyliar.budgetapp.domain.character.subclass
 
 
 abstract class Weapon(
-    val power: Int,
-    val resillence: Int,
-    val isOneHanded: Boolean,
+    open val power: Int,
+    open val resilience: Int,
+    open val isOneHanded: Boolean,
     name: String,
     price: Int,
     type: ItemType
@@ -12,3 +12,17 @@ abstract class Weapon(
     Item(name, price, type) {
 
 }
+
+data class Sword(
+    override val power: Int = 20,
+    override val resilience: Int = 20,
+    override  val isOneHanded: Boolean = true,
+    override val name: String = "sword",
+    override val price: Int = 20,
+    override val type: ItemType = ItemType.STEEL
+) : Weapon(power, resilience, isOneHanded, name, price, type) {
+
+}
+
+
+
