@@ -1,10 +1,10 @@
 package pl.motyliar.budgetapp.domain.character.subclass
 
-class ExtraPoints {
-    private var extraPoints: Int = 0
+open class ExtraPoints {
+    protected var extraPoints: Int = 0
 
 
-    fun getExtraPoints(): Int {
+    fun getPoints(): Int {
         return extraPoints
     }
     fun removeSinglePoints() {
@@ -12,14 +12,20 @@ class ExtraPoints {
             extraPoints--
     }
 
-    fun addExtraPoints() {
+    open fun addExtraPoints() {
         extraPoints +=10
     }
 
-    fun setExtraPoints(value: Int) {
+    fun customSetExtraPoints(value: Int) {
         if(value > 0) {
         extraPoints += value }
     }
 
 
+}
+
+class SkillPoints : ExtraPoints() {
+    override fun addExtraPoints() {
+        extraPoints += 1
+    }
 }
