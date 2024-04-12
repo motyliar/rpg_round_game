@@ -11,34 +11,34 @@ class ExtraPointsTest {
 
     @Test
     fun checkInitialExtraPoints() {
-        assertEquals(0, extraPoint.getExtraPoints())
+        assertEquals(0, extraPoint.getPoints())
     }
     @Test
     fun removePointsWhenExtraPointsIsZero() {
         extraPoint.removeSinglePoints()
-        assertEquals(0, extraPoint.getExtraPoints())
+        assertEquals(0, extraPoint.getPoints())
     }
 
     @Test
     fun removePointsWhenExtraPointsIsGreatherThenZero() {
-        extraPoint.setExtraPoints(10)
+        extraPoint.customSetExtraPoints(10)
         extraPoint.removeSinglePoints()
-        assertEquals(9, extraPoint.getExtraPoints())
+        assertEquals(9, extraPoint.getPoints())
     }
 
     @Test
     fun checkIsAddExtraPoints() {
         extraPoint.addExtraPoints()
-        assertEquals(10, extraPoint.getExtraPoints())
+        assertEquals(10, extraPoint.getPoints())
     }
     @Test
     fun checkIsAddValueWhenIsMoreThenZero() {
-        extraPoint.setExtraPoints(10)
-        assertEquals(10, extraPoint.getExtraPoints())
+        extraPoint.customSetExtraPoints(10)
+        assertEquals(10, extraPoint.getPoints())
     }
     @Test
     fun checkIsZeroWhenValueIsLessThenZero() {
-        extraPoint.setExtraPoints(-10)
-        assertEquals(0, extraPoint.getExtraPoints())
+        extraPoint.customSetExtraPoints(-10)
+        assertEquals(0, extraPoint.getPoints())
     }
 }
