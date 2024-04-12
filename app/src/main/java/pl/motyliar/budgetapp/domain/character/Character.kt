@@ -20,6 +20,7 @@ abstract class Character(
     private var _skillPoints: ExtraPoints = SkillPoints()
     val extraPoints: ExtraPoints = _extraPoints
     val skillPoints: ExtraPoints = _skillPoints
+    val onCharacterEffects: OnCharacterEffects = OnCharacterEffects()
 
 
 
