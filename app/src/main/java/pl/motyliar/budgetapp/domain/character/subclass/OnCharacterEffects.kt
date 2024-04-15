@@ -1,25 +1,25 @@
 package pl.motyliar.budgetapp.domain.character.subclass
 
+import pl.motyliar.budgetapp.core.equatable.Equatable
+
 class OnCharacterEffects(
     private var stunned: Boolean = false,
-    private var poiosoned: Boolean = false,
+    private var poisoned: Boolean = false,
     private var confusion: Boolean = false,
     private var blinded: Boolean = false,
     private var healBlocked: Boolean = false
 ) {
-    init {
-        clearAll()
-    }
+
 
     fun getEffectsStateInstance(): OnCharacterEffects {
-        return OnCharacterEffects(stunned, poiosoned, confusion, blinded, healBlocked)
+        return OnCharacterEffects(stunned, poisoned, confusion, blinded, healBlocked)
 
     }
 
 
     fun clearAll() {
         stunned = false
-        poiosoned = false
+        poisoned = false
         confusion = false
         blinded = false
         healBlocked = false
@@ -30,7 +30,7 @@ class OnCharacterEffects(
     }
 
     fun poisonedEffect() {
-        poiosoned = true
+        poisoned = true
     }
 
     fun confusionEffect() {
@@ -43,6 +43,18 @@ class OnCharacterEffects(
 
     fun healBlockedEffect() {
         healBlocked = true
+    }
+
+    override fun toString(): String {
+        return "OnCharacterEffects(stunned: $stunned, poisoned: $poisoned, confusion: $confusion, blinded: $blinded, healBlocked: $healBlocked)"
+    }
+
+
+    override fun equals(other: Any?): Boolean {
+
+        return Equatable.getProps<OnCharacterEffects>(this, other)
+
+
     }
 
 }

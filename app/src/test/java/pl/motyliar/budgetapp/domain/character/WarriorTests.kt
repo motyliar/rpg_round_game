@@ -6,6 +6,7 @@ import org.junit.Assert.*
 import org.junit.Test
 import pl.motyliar.budgetapp.domain.character.Warrior
 import pl.motyliar.budgetapp.domain.character.subclass.CharacterType
+import pl.motyliar.budgetapp.domain.character.subclass.FireBall
 import pl.motyliar.budgetapp.domain.character.subclass.ItemType
 import pl.motyliar.budgetapp.domain.character.subclass.Talisman
 import pl.motyliar.budgetapp.domain.character.subclass.TalismanKind
@@ -116,5 +117,15 @@ class WarriorTests {
         assertEquals(1, warrior.getCharacterLevel())
         assertEquals(0, warrior.extraPoints.getPoints())
         assertEquals(0, warrior.skillPoints.getPoints())
+    }
+
+    @Test
+    fun addSkillToSkillTreeAndCheck() {
+        warrior.skillTree.add(FireBall)
+        println(warrior.skillTree)
+
+        assertTrue(warrior.skillTree.contains(FireBall))
+
+
     }
 }

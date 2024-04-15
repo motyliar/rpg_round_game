@@ -1,5 +1,7 @@
 package pl.motyliar.budgetapp.domain.character.subclass
 
+import pl.motyliar.budgetapp.core.equatable.Equatable
+
 class Talisman(name: String, type: ItemType, price: Int, private var extraPoints: Int, private val talismanKind: TalismanKind) : Item(name,price, type) {
     fun getExtraPoints(kind: TalismanKind): Int {
         var talismanPoints: Int = 0
@@ -13,6 +15,11 @@ class Talisman(name: String, type: ItemType, price: Int, private var extraPoints
             }
         }
         return talismanPoints
+
+    }
+    override fun equals(other: Any?): Boolean {
+
+        return Equatable.getProps<Talisman>(this, other)
 
     }
 

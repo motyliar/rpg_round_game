@@ -1,5 +1,7 @@
 package pl.motyliar.budgetapp.domain.character.subclass
 
+import pl.motyliar.budgetapp.core.equatable.Equatable
+
 open class ExtraPoints {
     protected var extraPoints: Int = 0
 
@@ -19,6 +21,12 @@ open class ExtraPoints {
     fun customSetExtraPoints(value: Int) {
         if(value > 0) {
         extraPoints += value }
+    }
+
+    override fun equals(other: Any?): Boolean {
+
+        return Equatable.getProps<ExtraPoints>(this, other)
+
     }
 
 

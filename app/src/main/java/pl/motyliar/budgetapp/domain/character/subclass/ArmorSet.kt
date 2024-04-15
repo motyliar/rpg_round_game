@@ -60,7 +60,7 @@ class ArmorSet(
         result = 31 * result + head.hashCode()
         result = 31 * result + boots.hashCode()
         result = 31 * result + shield.hashCode()
-                return result
+        return result
     }
 
 
