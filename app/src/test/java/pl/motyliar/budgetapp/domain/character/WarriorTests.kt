@@ -6,6 +6,7 @@ import org.junit.Assert.*
 import org.junit.Test
 import pl.motyliar.budgetapp.domain.character.Warrior
 import pl.motyliar.budgetapp.domain.character.subclass.CharacterType
+import pl.motyliar.budgetapp.domain.character.subclass.FireBall
 import pl.motyliar.budgetapp.domain.character.subclass.ItemType
 import pl.motyliar.budgetapp.domain.character.subclass.Talisman
 import pl.motyliar.budgetapp.domain.character.subclass.TalismanKind
@@ -83,7 +84,7 @@ class WarriorTests {
     fun shouldReturnExtraPoints() {
         warrior.extraPoints.addExtraPoints()
 
-        assertEquals(10, warrior.extraPoints.getExtraPoints())
+        assertEquals(10, warrior.extraPoints.getPoints())
     }
     @Test
     fun afterDecrementShouldReturnLessExtraPoints() {
@@ -92,6 +93,39 @@ class WarriorTests {
         warrior.extraPoints.addExtraPoints()
         warrior.extraPoints.removeSinglePoints()
 
-        assertEquals(18, warrior.extraPoints.getExtraPoints())
+        assertEquals(18, warrior.extraPoints.getPoints())
+    }
+
+    @Test
+    fun checkIsWarriorOnLevelOne() {
+        assertEquals(1, warrior.getCharacterLevel())
+    }
+
+    @Test
+    fun checkIsWarriorOnLevelTwoAndGetExtraPoints() {
+        warrior.addExperience(100)
+        warrior.updateCharacter()
+        assertEquals(2, warrior.getCharacterLevel())
+        assertEquals(10, warrior.extraPoints.getPoints())
+        assertEquals(1, warrior.skillPoints.getPoints())
+    }
+
+    @Test
+    fun shouldBeStillLevelOneAndNoMoreExtraPoints() {
+        warrior.addExperience(99)
+        warrior.updateCharacter()
+        assertEquals(1, warrior.getCharacterLevel())
+        assertEquals(0, warrior.extraPoints.getPoints())
+        assertEquals(0, warrior.skillPoints.getPoints())
+    }
+
+    @Test
+    fun addSkillToSkillTreeAndCheck() {
+        warrior.skillTree.add(FireBall)
+        println(warrior.skillTree)
+
+        assertTrue(warrior.skillTree.contains(FireBall))
+
+
     }
 }
