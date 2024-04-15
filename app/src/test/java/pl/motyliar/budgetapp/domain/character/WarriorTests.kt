@@ -5,11 +5,18 @@ import org.junit.Assert
 import org.junit.Assert.*
 import org.junit.Test
 import pl.motyliar.budgetapp.domain.character.Warrior
+import pl.motyliar.budgetapp.domain.character.helpers.FireBallSecondTest
 import pl.motyliar.budgetapp.domain.character.subclass.CharacterType
 import pl.motyliar.budgetapp.domain.character.subclass.FireBall
 import pl.motyliar.budgetapp.domain.character.subclass.ItemType
+import pl.motyliar.budgetapp.domain.character.subclass.Skill
 import pl.motyliar.budgetapp.domain.character.subclass.Talisman
 import pl.motyliar.budgetapp.domain.character.subclass.TalismanKind
+import pl.motyliar.budgetapp.domain.character.subclass.subskill.BuyRequirements
+import pl.motyliar.budgetapp.domain.character.subclass.subskill.SkillGrade
+import pl.motyliar.budgetapp.domain.character.subclass.subskill.Stun
+import pl.motyliar.budgetapp.domain.character.subclass.subskill.UseRequirements
+import pl.motyliar.budgetapp.domain.game.Attack
 
 val testName: String = "Test"
 
@@ -127,5 +134,15 @@ class WarriorTests {
         assertTrue(warrior.skillTree.contains(FireBall))
 
 
+    }
+
+    @Test
+    fun shouldBePossibleToBuyNewSkill() {
+        warrior.skillPoints.addExtraPoints()
+        warrior.skillTree.add(FireBall)
+        warrior.vitality.strength = 32
+        warrior.buySkill(FireBallSecondTest)
+
+        assertTrue(warrior.skillTree.contains(FireBallSecondTest))
     }
 }
