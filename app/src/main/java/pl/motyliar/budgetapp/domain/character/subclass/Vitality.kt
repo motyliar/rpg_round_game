@@ -20,6 +20,7 @@ class Vitality(
     val characterEnergy = energy
     val addLife : (Int) -> Unit = {this.life += it}
     val addIntelligence: (Int) -> Unit = {this.intelligence += it }
+
     fun recoveringHealth(value: Int) {
         if (characterLife + value >= characterLife) {
             damages = 0

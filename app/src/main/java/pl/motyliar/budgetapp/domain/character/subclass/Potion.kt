@@ -27,6 +27,6 @@ sealed class PotionSize {
 }
 class HealthPotion(size: PotionSize) : Potion(potionSize = size, name = "of health", price = 100) {
     override fun recovering(character: Character) {
-        character.vitality.recoverHealth(recoveryPoints)
+        character.vitality.recoveringHealth(recoveryPoints)
     }
 }
