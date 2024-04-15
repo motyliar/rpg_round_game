@@ -1,5 +1,7 @@
 package pl.motyliar.budgetapp.domain.character
 
+import pl.motyliar.budgetapp.core.equatable.Equatable
+import pl.motyliar.budgetapp.core.equatable.HashCodeGen
 import pl.motyliar.budgetapp.domain.character.subclass.*
 import pl.motyliar.budgetapp.domain.character.subclass.armors.LeatherJacket
 
@@ -11,9 +13,10 @@ abstract class Character(
     open val items: Items = Items(),
     open val vitality: Vitality,
     private var experience: Int = 0,
-    val money: Int = 100,
+    var money: Int = 100,
     var talisman: Talisman? = null,
     open val armorSet: ArmorSet,
+    var skillTree : MutableList<Skill> = mutableListOf<Skill>()
 ) {
     private var _characterLevel: Int = 1
     private var _extraPoints: ExtraPoints = ExtraPoints()
@@ -69,6 +72,20 @@ abstract class Character(
 
     }
 
+    fun buySkill(skill: Skill) {
+        if(skill.canIBuy(this)) {
+            skillTree.add(skill)
+        }
+    }
+
+    override fun equals(other: Any?): Boolean {
+        return Equatable.getProps<Character>(this, other)
+    }
+//
+//    override fun hashCode(): Int {
+//        return HashCodeGen.generate<Character>(this)
+//    }
+
 
 
 
@@ -94,6 +111,8 @@ class Warrior(
     type = type, weapon = weapon, vitality = vitality, armorSet = armorSet
 
 ) {
+
+
 
 }
 
