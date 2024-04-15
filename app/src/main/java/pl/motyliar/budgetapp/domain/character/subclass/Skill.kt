@@ -34,6 +34,10 @@ abstract class Skill(
        character.skillTree.add(this)
    }
 
+   fun getSkillName(): String {
+       return name
+   }
+
     private fun _canIUse(character: Character): Boolean {
 
         return character.vitality.strength >= useRequirements.strength &&
@@ -52,12 +56,7 @@ abstract class Skill(
        return character.skillPoints.getPoints() >= cost
     }
 
-    override fun equals(other: Any?): Boolean {
 
-        return Equatable.getProps<Skill>(this, other)
-
-
-    }
 
     override fun toString(): String {
         return "Skill(name: $name)"
