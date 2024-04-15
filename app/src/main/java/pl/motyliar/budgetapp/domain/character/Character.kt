@@ -41,7 +41,7 @@ abstract class Character(
 
     fun getTotalPower(): Int {
         val talismanPower = talisman?.getExtraPoints(TalismanKind.POWER) ?: 0
-        return vitality.power + weapon.power + talismanPower
+        return vitality.strength + weapon.power + talismanPower
     }
 
     fun getTotalDefence(): Int {
@@ -96,7 +96,7 @@ class Warrior(
     override val type: CharacterType = CharacterType.Warrior,
     override val weapon: Weapon = Sword(),
     override val vitality: Vitality = Vitality(
-        power = 10,
+        energy = 10,
         strength = 10,
         intelligence = 10,
         life = 50,
