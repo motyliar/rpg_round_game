@@ -2,9 +2,11 @@ package pl.motyliar.budgetapp.domain.character
 
 import org.junit.Assert.*
 import org.junit.Test
+import pl.motyliar.budgetapp.domain.character.helpers.WarriorTest
 import pl.motyliar.budgetapp.domain.character.subclass.OnCharacterEffects
 
 class OnCharacterEffectsTest {
+   private val warrior = WarriorTest()
 
     @Test
     fun isCorrectInstance() {
@@ -18,7 +20,6 @@ class OnCharacterEffectsTest {
 
     @Test
     fun checkIsThisSameStateOfClass() {
-        val warrior = Warrior()
         warrior.onCharacterEffects.poisonedEffect()
 
         val effects = OnCharacterEffects()
@@ -31,7 +32,7 @@ class OnCharacterEffectsTest {
 
     @Test
     fun checkIsDifferentStateOfClass() {
-        val warrior = Warrior()
+
         warrior.onCharacterEffects.poisonedEffect()
         val effects = OnCharacterEffects()
 
