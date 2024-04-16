@@ -1,6 +1,8 @@
-package pl.motyliar.budgetapp.domain.character.subclass
+package pl.motyliar.budgetapp.domain.character.subclass.potion
 
 import pl.motyliar.budgetapp.domain.character.Character
+import pl.motyliar.budgetapp.domain.character.subclass.Item
+import pl.motyliar.budgetapp.domain.character.subclass.ItemType
 
 
 private const val SMALL_POTION_POINTS = 10

@@ -3,9 +3,9 @@ package pl.motyliar.budgetapp.domain.character
 import org.junit.Assert.*
 import org.junit.Test
 import pl.motyliar.budgetapp.domain.character.helpers.WarriorTest
-import pl.motyliar.budgetapp.domain.character.subclass.EnergyPotion
-import pl.motyliar.budgetapp.domain.character.subclass.HealthPotion
-import pl.motyliar.budgetapp.domain.character.subclass.PotionSize
+import pl.motyliar.budgetapp.domain.character.subclass.potion.EnergyPotion
+import pl.motyliar.budgetapp.domain.character.subclass.potion.HealthPotion
+import pl.motyliar.budgetapp.domain.character.subclass.potion.PotionSize
 
 class PotionTest {
 
