@@ -2,7 +2,7 @@ package pl.motyliar.budgetapp.domain.character
 
 import org.junit.Assert.*
 import org.junit.Test
-import pl.motyliar.budgetapp.domain.character.helpers.WarriorTest
+import pl.motyliar.budgetapp.domain.character.helpers.KnightTest
 import pl.motyliar.budgetapp.domain.character.subclass.potion.HealthPotion
 import pl.motyliar.budgetapp.domain.character.subclass.potion.Potion
 import pl.motyliar.budgetapp.domain.character.subclass.potion.PotionBelt
@@ -63,7 +63,7 @@ class PotionBeltTest {
     fun use_whenUsePotion_indexOfPotionIsNull() {
         //given
         val potion = HealthPotion(PotionSize.SmallPotion)
-        val warrior = WarriorTest()
+        val warrior = KnightTest
         val index = 0
         //when
         potionBelt.add(potion, index)

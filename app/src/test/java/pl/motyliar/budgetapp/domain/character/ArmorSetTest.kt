@@ -2,7 +2,7 @@ package pl.motyliar.budgetapp.domain.character
 
 import org.junit.Test
 import org.junit.Assert.*
-import pl.motyliar.budgetapp.domain.character.helpers.WarriorTest
+import pl.motyliar.budgetapp.domain.character.helpers.KnightTest
 import pl.motyliar.budgetapp.domain.character.subclass.ArmorSet
 import pl.motyliar.budgetapp.domain.character.subclass.armors.LeatherBoots
 import pl.motyliar.budgetapp.domain.character.subclass.armors.*
@@ -10,7 +10,7 @@ import pl.motyliar.budgetapp.domain.character.subclass.armors.*
 
 class ArmorSetTest {
 
-    private val warrior: Character = WarriorTest()
+    private val warrior = KnightTest
     private val armorSetTest: ArmorSet = ArmorSet(chest = LeatherJacket(), boots = LeatherBoots())
 
 

@@ -9,4 +9,4 @@ class Computer(character: Character) : Player(character) {
     }
 }
 
-val computerPlayer: Player = Computer(character = Warrior())
+

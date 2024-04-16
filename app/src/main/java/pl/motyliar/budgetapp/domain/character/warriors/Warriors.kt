@@ -5,6 +5,7 @@ import pl.motyliar.budgetapp.domain.character.subclass.ArmorSet
 import pl.motyliar.budgetapp.domain.character.subclass.CharacterLevel
 import pl.motyliar.budgetapp.domain.character.subclass.ExtraPoints
 import pl.motyliar.budgetapp.domain.character.subclass.Items
+import pl.motyliar.budgetapp.domain.character.subclass.Skill
 import pl.motyliar.budgetapp.domain.character.subclass.SkillPoints
 import pl.motyliar.budgetapp.domain.character.subclass.Talisman
 import pl.motyliar.budgetapp.domain.character.subclass.TalismanKind
@@ -71,6 +72,12 @@ abstract class Warriors(
             skillPoints.addExtraPoints()
         }
 
+    }
+
+    fun buySkill(skill: Skill) {
+        if(skill.canIBuy(this)) {
+            skillTree.add(skill)
+        }
     }
 
 

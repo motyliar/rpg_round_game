@@ -27,11 +27,7 @@ abstract class Character(
     }
 
 
-    fun buySkill(skill: Skill) {
-        if(skill.canIBuy(this)) {
-            skillTree.add(skill)
-        }
-    }
+
 
     override fun equals(other: Any?): Boolean {
         return Equatable.getProps<Character>(this, other)

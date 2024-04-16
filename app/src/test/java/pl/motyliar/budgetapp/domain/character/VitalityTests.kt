@@ -2,11 +2,11 @@ package pl.motyliar.budgetapp.domain.character
 
 import org.junit.Assert.*
 import org.junit.Test
-import pl.motyliar.budgetapp.domain.character.helpers.WarriorTest
+import pl.motyliar.budgetapp.domain.character.helpers.KnightTest
 
 class VitalityTests {
 
-    val warrior = WarriorTest()
+    val warrior = KnightTest
 
     @Test
     fun getInitialLife() {
