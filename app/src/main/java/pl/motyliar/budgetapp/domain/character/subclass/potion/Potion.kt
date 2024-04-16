@@ -29,6 +29,10 @@ abstract class Potion(
     }
 
     abstract fun recovering(character: Character)
+
+    override fun toString(): String {
+        return "Potion: $name, price: $price"
+    }
 }
 
 sealed class PotionSize {

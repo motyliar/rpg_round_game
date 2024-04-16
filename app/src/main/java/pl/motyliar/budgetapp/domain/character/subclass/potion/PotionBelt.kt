@@ -10,7 +10,13 @@ sealed class PotionBelt(private var potions: MutableList<Potion?>) {
     data object LargePotionBelt : PotionBelt(potions = MutableList(7) { null })
 
     fun add(potion: Potion, index: Int) {
-        potions[index] = potion
+        if (potions[index] == null) {
+            potions[index] = potion
+        } else {
+            addToNextEmpty(potion)
+
+
+        }
     }
 
     fun remove(index: Int) {
@@ -28,6 +34,27 @@ sealed class PotionBelt(private var potions: MutableList<Potion?>) {
 
     val size: Int
         get() = potions.size
+
+    fun findEmptySpace(): Int {
+        val index = potions.indexOfFirst { it == null }
+
+        if (index != -1) {
+            return index
+        } else {
+            return -1
+        }
+    }
+    private fun addToNextEmpty(potion: Potion) {
+        val emptyIndex = findEmptySpace()
+        if(emptyIndex != -1) {
+            potions[emptyIndex] = potion
+        }
+
+    }
+
+    override fun toString(): String {
+        return "Potions: $potions"
+    }
 
 
 }

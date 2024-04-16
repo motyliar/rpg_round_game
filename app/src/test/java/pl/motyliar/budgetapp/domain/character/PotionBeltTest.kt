@@ -13,6 +13,7 @@ class PotionBeltTest {
     val potionBelt = PotionBelt.SmallPotionBelt
     val potionBeltMedium = PotionBelt.MediumPotionBelt
     val potionBeltLarge = PotionBelt.LargePotionBelt
+    val potion = HealthPotion(PotionSize.SmallPotion)
     @Test
     fun size_whenSmallPotionBelt_returnCorrectSize() {
         //given
@@ -71,5 +72,50 @@ class PotionBeltTest {
 
         //then
         assertTrue(potions[index] == null)
+    }
+
+    @Test
+    fun findEmptySpace_whenCall_returnFirstNullIndexZero() {
+        //when
+        val result = potionBelt.findEmptySpace()
+        //then
+        assertEquals(0, result)
+    }
+    @Test
+    fun findEmptySpace_whenAddPotionAndCall_returnFirstNullIndexOne() {
+        //given
+
+        //when
+        potionBelt.add(potion, 0)
+        println(potionBelt.show().toString())
+        val result = potionBelt.findEmptySpace()
+        //then
+        assertEquals(1, result)
+    }
+
+    @Test
+    fun add_whenAddToOccupied_thenAddToNextFree() {
+        //when
+        potionBelt.add(potion, 0)
+        potionBelt.add(potion, 0)
+        println(potionBelt.show())
+        //then
+        assertTrue(potionBelt.show()[0] != null)
+        assertTrue(potionBelt.show()[1] != null)
+        assertTrue(potionBelt.show()[2] == null)
+    }
+
+    @Test
+    fun add_whenAddToFullBelt_thenNothingChange() {
+        //given
+        for(i in 0 .. 3) {
+            potionBelt.add(potion, 0)
+        }
+        val before = potionBelt.show().hashCode()
+        //when
+        potionBelt.add(potion, 0)
+        val after = potionBelt.show().hashCode()
+        //then
+        assertTrue(before == after)
     }
 }
