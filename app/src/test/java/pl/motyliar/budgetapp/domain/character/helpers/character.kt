@@ -13,7 +13,7 @@ class WarriorTest(
     override val type: CharacterType = CharacterType.Warrior,
     override val weapon: Weapon = Sword(),
     override val vitality: Vitality = Vitality(
-        energy = 10,
+        energy = 20,
         strength = 10,
         intelligence = 10,
         life = 50,
