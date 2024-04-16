@@ -2,9 +2,11 @@ package pl.motyliar.budgetapp.domain.character
 
 import org.junit.Assert.*
 import org.junit.Test
+import pl.motyliar.budgetapp.domain.character.helpers.WarriorTest
+
 class VitalityTests {
 
-    val warrior: Warrior = Warrior()
+    val warrior = WarriorTest()
 
     @Test
     fun getInitialLife() {
@@ -61,7 +63,7 @@ class VitalityTests {
     @Test
     fun shouldReturnCurrentEnergy() {
         warrior.vitality.addFatigue(5)
-        assertEquals(5, warrior.vitality.getCurrentEnergy())
+        assertEquals(15, warrior.vitality.getCurrentEnergy())
 
     }
     @Test
