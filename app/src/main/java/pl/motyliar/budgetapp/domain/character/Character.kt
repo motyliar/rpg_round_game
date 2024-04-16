@@ -81,10 +81,7 @@ abstract class Character(
     override fun equals(other: Any?): Boolean {
         return Equatable.getProps<Character>(this, other)
     }
-//
-//    override fun hashCode(): Int {
-//        return HashCodeGen.generate<Character>(this)
-//    }
+
 
 
 

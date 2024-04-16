@@ -6,6 +6,7 @@ import org.junit.Assert.*
 import org.junit.Test
 import pl.motyliar.budgetapp.domain.character.Warrior
 import pl.motyliar.budgetapp.domain.character.helpers.FireBallSecondTest
+import pl.motyliar.budgetapp.domain.character.helpers.WarriorTest
 import pl.motyliar.budgetapp.domain.character.subclass.CharacterType
 import pl.motyliar.budgetapp.domain.character.subclass.FireBall
 import pl.motyliar.budgetapp.domain.character.subclass.ItemType
@@ -21,7 +22,7 @@ import pl.motyliar.budgetapp.domain.game.Attack
 val testName: String = "Test"
 
 class WarriorTests {
-    val warrior = Warrior(name = testName)
+    val warrior = WarriorTest(name = testName)
 
     @Test
     fun getCorrectCharacterName() {
