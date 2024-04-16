@@ -3,7 +3,7 @@ package pl.motyliar.budgetapp.domain.character.subclass
 import pl.motyliar.budgetapp.core.equatable.Equatable
 
 sealed class CharacterType(val type: Kind) {
-    object Warrior : CharacterType(Kind.WARRIOR)
+    object Knight : CharacterType(Kind.KNIGHT)
     object Monster : CharacterType(Kind.MONSTER)
     object Wizard : CharacterType(Kind.WIZARD)
 
@@ -15,5 +15,5 @@ sealed class CharacterType(val type: Kind) {
 
 
 enum class Kind() {
-    WARRIOR, MONSTER, WIZARD
+    KNIGHT, MONSTER, WIZARD
 }
