@@ -4,6 +4,7 @@ import pl.motyliar.budgetapp.core.equatable.Equatable
 import pl.motyliar.budgetapp.core.equatable.HashCodeGen
 import pl.motyliar.budgetapp.domain.character.subclass.*
 import pl.motyliar.budgetapp.domain.character.subclass.armors.LeatherJacket
+import pl.motyliar.budgetapp.domain.character.subclass.potion.PotionBelt
 
 
 abstract class Character(
@@ -24,6 +25,8 @@ abstract class Character(
     val extraPoints: ExtraPoints = _extraPoints
     val skillPoints: ExtraPoints = _skillPoints
     val onCharacterEffects: OnCharacterEffects = OnCharacterEffects()
+    private var potionBelt: PotionBelt = PotionBelt.SmallPotionBelt
+    val getPotionBelt get() = potionBelt
 
 
 
