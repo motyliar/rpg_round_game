@@ -1,5 +1,7 @@
 package pl.motyliar.budgetapp.domain.character.subclass
 
+import pl.motyliar.budgetapp.core.equatable.Equatable
+
 
 abstract class Weapon(
     open val power: Int,
@@ -11,6 +13,11 @@ abstract class Weapon(
     type: ItemType
 ) :
     Item(name, price, type) {
+    override fun equals(other: Any?): Boolean {
+
+        return Equatable.getProps<Weapon>(this, other)
+
+    }
 
 }
 
