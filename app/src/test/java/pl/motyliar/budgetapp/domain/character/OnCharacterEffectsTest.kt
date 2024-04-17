@@ -2,11 +2,11 @@ package pl.motyliar.budgetapp.domain.character
 
 import org.junit.Assert.*
 import org.junit.Test
-import pl.motyliar.budgetapp.domain.character.helpers.WarriorTest
+import pl.motyliar.budgetapp.domain.character.helpers.KnightTest
 import pl.motyliar.budgetapp.domain.character.subclass.OnCharacterEffects
 
 class OnCharacterEffectsTest {
-   private val warrior = WarriorTest()
+   private val warrior = KnightTest
 
     @Test
     fun isCorrectInstance() {

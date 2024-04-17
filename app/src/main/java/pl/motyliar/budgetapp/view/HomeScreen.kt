@@ -34,6 +34,10 @@ import pl.motyliar.budgetapp.viewmodels.HomeViewModel
 
 import androidx.compose.ui.text.TextStyle
 import pl.motyliar.budgetapp.domain.character.*
+import pl.motyliar.budgetapp.domain.character.subclass.ArmorSet
+import pl.motyliar.budgetapp.domain.character.subclass.Sword
+import pl.motyliar.budgetapp.domain.character.subclass.armors.LeatherBoots
+import pl.motyliar.budgetapp.domain.character.warriors.Knight
 import pl.motyliar.budgetapp.view.buisness.ValueState
 import pl.motyliar.budgetapp.view.components.CustomButton
 import java.time.temporal.TemporalAmount.*
@@ -42,7 +46,7 @@ import java.time.temporal.TemporalAmount.*
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen() {
-    val warriorCharacter: Character = Warrior()
+    val warriorCharacter: Character = Knight(name = "warrior", armorSet = ArmorSet(boots = LeatherBoots()), weapon = Sword())
     val viewModel = viewModel<HomeViewModel>()
     val content = viewModel.content.collectAsState()
     val amount = viewModel.amount.collectAsState()
@@ -132,8 +136,7 @@ fun HomeScreen() {
             }) {
                 Text(text = warriorCharacter.name , color = Color.Black)
                 Text(text = warriorCharacter.weapon.getFullName() , color = Color.Black)
-                Text(text = warriorCharacter.armorSet.chest!!.getFullName() , color = Color.Black)
-                Text(text = warriorCharacter.type.type.name, color = Color.Black)
+
 
 
 

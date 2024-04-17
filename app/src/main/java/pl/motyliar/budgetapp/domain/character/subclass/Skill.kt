@@ -7,6 +7,7 @@ import pl.motyliar.budgetapp.domain.character.subclass.subskill.SkillGrade
 import pl.motyliar.budgetapp.domain.character.subclass.subskill.SpecialEffects
 import pl.motyliar.budgetapp.domain.character.subclass.subskill.Stun
 import pl.motyliar.budgetapp.domain.character.subclass.subskill.UseRequirements
+import pl.motyliar.budgetapp.domain.character.warriors.Warriors
 import pl.motyliar.budgetapp.domain.game.Attack
 
 abstract class Skill(
@@ -22,11 +23,11 @@ abstract class Skill(
     protected val name: String = name
     protected val useRequirements = useRequirements
     abstract fun use(): Attack
-    fun canIUse(character: Character): Boolean {
+    fun canIUse(character: Warriors): Boolean {
         return _canIUse(character)
     }
 
-    fun canIBuy(character: Character): Boolean {
+    fun canIBuy(character: Warriors): Boolean {
         return _canIBuy(character)
     }
 
@@ -38,7 +39,7 @@ abstract class Skill(
        return name
    }
 
-    private fun _canIUse(character: Character): Boolean {
+    private fun _canIUse(character: Warriors): Boolean {
 
         return character.vitality.strength >= useRequirements.strength &&
                 character.vitality.intelligence >= useRequirements.intelligence &&
@@ -49,10 +50,10 @@ abstract class Skill(
     }
 
 
-   private fun _canIBuy(character: Character): Boolean {
+   private fun _canIBuy(character: Warriors): Boolean {
         return buyRequirements.isPossibleToBuy(character) && haveEnoughPoints(character)
     }
-    private fun haveEnoughPoints(character: Character) : Boolean {
+    private fun haveEnoughPoints(character: Warriors) : Boolean {
        return character.skillPoints.getPoints() >= cost
     }
 

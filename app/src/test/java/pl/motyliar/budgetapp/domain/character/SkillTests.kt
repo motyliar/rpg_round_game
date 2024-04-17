@@ -4,7 +4,8 @@ package pl.motyliar.budgetapp.domain.character
 import org.junit.Test
 import org.junit.Assert.*
 import pl.motyliar.budgetapp.domain.character.helpers.FireBallSecondTest
-import pl.motyliar.budgetapp.domain.character.helpers.WarriorTest
+import pl.motyliar.budgetapp.domain.character.helpers.KnightTest
+import pl.motyliar.budgetapp.domain.character.helpers.KnightTesting
 import pl.motyliar.budgetapp.domain.character.subclass.FireBall
 import pl.motyliar.budgetapp.domain.character.subclass.Skill
 import pl.motyliar.budgetapp.domain.character.subclass.subskill.BuyRequirements
@@ -15,7 +16,7 @@ import pl.motyliar.budgetapp.domain.game.Attack
 
 
 class SkillTests {
-    var warrior = WarriorTest()
+    var warrior = KnightTest
     val fireballsecond = FireBallSecondTest
 
     @Test
@@ -27,6 +28,7 @@ class SkillTests {
     }
     @Test
     fun checkIsPossibleToBuyNewSkillShouldReturnFalse() {
+        val warrior = KnightTesting()
         val possibleToBuy = fireballsecond.canIBuy(warrior)
         assertFalse(possibleToBuy)
     }
@@ -40,6 +42,7 @@ class SkillTests {
 
     @Test
     fun isSkillPossibleToUseShouldReturnFalse() {
+        warrior.vitality.strength = 29
         val possibleToUse = fireballsecond.canIUse(warrior)
         assertFalse(possibleToUse)
     }

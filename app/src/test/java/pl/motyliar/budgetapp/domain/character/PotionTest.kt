@@ -2,10 +2,10 @@ package pl.motyliar.budgetapp.domain.character
 
 import org.junit.Assert.*
 import org.junit.Test
-import pl.motyliar.budgetapp.domain.character.helpers.WarriorTest
-import pl.motyliar.budgetapp.domain.character.subclass.EnergyPotion
-import pl.motyliar.budgetapp.domain.character.subclass.HealthPotion
-import pl.motyliar.budgetapp.domain.character.subclass.PotionSize
+import pl.motyliar.budgetapp.domain.character.helpers.KnightTest
+import pl.motyliar.budgetapp.domain.character.subclass.potion.EnergyPotion
+import pl.motyliar.budgetapp.domain.character.subclass.potion.HealthPotion
+import pl.motyliar.budgetapp.domain.character.subclass.potion.PotionSize
 
 class PotionTest {
 
@@ -25,13 +25,13 @@ class PotionTest {
     @Test
     fun recovering_whenWarriorUseEnergyPotion_thenReturnCorrectEnergy() {
         //given
-        val warrior = WarriorTest()
+        val warrior = KnightTest
         val potion = EnergyPotion(PotionSize.SmallPotion)
         //when
         warrior.vitality.addFatigue(20)
         potion.recovering(warrior)
         //then
-        assertEquals(10, warrior.vitality.getCurrentEnergy())
+        assertEquals(40, warrior.vitality.getCurrentEnergy())
 
     }
 }
