@@ -4,10 +4,10 @@ import pl.motyliar.budgetapp.domain.character.Character
 
 sealed class PotionBelt(private var potions: MutableList<Potion?>) {
 
-    data object SmallPotionBelt : PotionBelt(potions = MutableList(4) { null })
-    data object MediumPotionBelt : PotionBelt(potions = MutableList(5) { null })
+    class SmallPotionBelt : PotionBelt(potions = MutableList(4) { null })
+    class MediumPotionBelt : PotionBelt(potions = MutableList(5) { null })
 
-    data object LargePotionBelt : PotionBelt(potions = MutableList(7) { null })
+    class LargePotionBelt : PotionBelt(potions = MutableList(7) { null })
 
     fun add(potion: Potion, index: Int) {
         if (potions[index] == null) {
@@ -48,6 +48,19 @@ sealed class PotionBelt(private var potions: MutableList<Potion?>) {
         val emptyIndex = findEmptySpace()
         if(emptyIndex != -1) {
             potions[emptyIndex] = potion
+        }
+
+    }
+
+    fun removeAll() : List<Potion> {
+        val potionList: MutableList<Potion> = mutableListOf()
+        val index = potions.indexOfFirst { it != null }
+        if(index == -1) {
+            return potionList
+        } else {
+            potionList.add(potions.removeAt(index)!!)
+            println(potions)
+            return removeAll()
         }
 
     }

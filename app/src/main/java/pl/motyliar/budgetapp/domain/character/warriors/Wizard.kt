@@ -9,7 +9,7 @@ class Wizard(name: String, armorSet: ArmorSet, weapon: Weapon) : Warriors(
     name = name,
     armorSet = armorSet,
     vitality = Vitality(15, 35, 50, 30, 30, 35),
-    potionBelt = PotionBelt.SmallPotionBelt,
+    potionBelt = PotionBelt.SmallPotionBelt(),
     weapon = weapon
 ) {
 }

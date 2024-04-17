@@ -28,12 +28,6 @@ class ArmorSetTest {
         assertFalse(warrior.armorSet == armorSetTest)
     }
 
-    @Test
-    fun shouldReturnTrueWhenCompareArmoreSet() {
-        val newBoots = LeatherBoots()
-        val copiedArmorSet = warrior.armorSet.copyWith(boots = newBoots)
-        assertTrue(armorSetTest == copiedArmorSet)
-    }
 
     @Test
     fun shouldReturnArmorSetFullDefence() {

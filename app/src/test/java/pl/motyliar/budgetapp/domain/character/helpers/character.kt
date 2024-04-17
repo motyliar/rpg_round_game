@@ -10,4 +10,13 @@ import pl.motyliar.budgetapp.domain.character.subclass.armors.LeatherBoots
 import pl.motyliar.budgetapp.domain.character.subclass.armors.LeatherJacket
 import pl.motyliar.budgetapp.domain.character.warriors.Knight
 
-object KnightTest : Knight("Knight", ArmorSet(boots = LeatherBoots()), Sword())
+object KnightTest : Knight("Knight", ArmorSet(chest = LeatherJacket()), Sword()) {
+    init {
+        skillPoints.addExtraPoints()
+        skillPoints.addExtraPoints()
+        skillPoints.addExtraPoints()
+        skillPoints.addExtraPoints()
+    }
+}
+
+class KnightTesting() : Knight("Knight", ArmorSet(chest = LeatherJacket(), ), Sword())

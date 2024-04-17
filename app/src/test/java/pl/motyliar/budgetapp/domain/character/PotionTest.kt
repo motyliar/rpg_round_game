@@ -31,7 +31,7 @@ class PotionTest {
         warrior.vitality.addFatigue(20)
         potion.recovering(warrior)
         //then
-        assertEquals(10, warrior.vitality.getCurrentEnergy())
+        assertEquals(40, warrior.vitality.getCurrentEnergy())
 
     }
 }

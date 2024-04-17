@@ -8,8 +8,8 @@ import pl.motyliar.budgetapp.domain.character.subclass.potion.PotionBelt
 open class Knight(name: String, armorSet: ArmorSet, weapon: Weapon) : Warriors(
     name = name,
     armorSet = armorSet,
-    vitality = Vitality(30, 15, 50, 0, 30, 50),
-    potionBelt = PotionBelt.SmallPotionBelt,
+    vitality = Vitality(31, 15, 50, 1, 30, 50),
+    potionBelt = PotionBelt.SmallPotionBelt(),
     weapon = weapon
 ) {
 }

@@ -10,9 +10,9 @@ import pl.motyliar.budgetapp.domain.character.subclass.potion.PotionSize
 
 class PotionBeltTest {
 
-    val potionBelt = PotionBelt.SmallPotionBelt
-    val potionBeltMedium = PotionBelt.MediumPotionBelt
-    val potionBeltLarge = PotionBelt.LargePotionBelt
+    val potionBelt = PotionBelt.SmallPotionBelt()
+    val potionBeltMedium = PotionBelt.MediumPotionBelt()
+    val potionBeltLarge = PotionBelt.LargePotionBelt()
     val potion = HealthPotion(PotionSize.SmallPotion)
     @Test
     fun size_whenSmallPotionBelt_returnCorrectSize() {
@@ -84,25 +84,27 @@ class PotionBeltTest {
     @Test
     fun findEmptySpace_whenAddPotionAndCall_returnFirstNullIndexOne() {
         //given
-
+        val potionBeltSmall = PotionBelt.SmallPotionBelt()
         //when
-        potionBelt.add(potion, 0)
+        potionBeltSmall.add(potion, 0)
         println(potionBelt.show().toString())
-        val result = potionBelt.findEmptySpace()
+        val result = potionBeltSmall.findEmptySpace()
         //then
         assertEquals(1, result)
     }
 
     @Test
     fun add_whenAddToOccupied_thenAddToNextFree() {
+        //given
+        val potionBeltSmall = PotionBelt.SmallPotionBelt()
         //when
-        potionBelt.add(potion, 0)
-        potionBelt.add(potion, 0)
+        potionBeltSmall.add(potion, 0)
+        potionBeltSmall.add(potion, 0)
         println(potionBelt.show())
         //then
-        assertTrue(potionBelt.show()[0] != null)
-        assertTrue(potionBelt.show()[1] != null)
-        assertTrue(potionBelt.show()[2] == null)
+        assertTrue(potionBeltSmall.show()[0] != null)
+        assertTrue(potionBeltSmall.show()[1] != null)
+        assertTrue(potionBeltSmall.show()[2] == null)
     }
 
     @Test
@@ -118,4 +120,6 @@ class PotionBeltTest {
         //then
         assertTrue(before == after)
     }
+
+
 }
